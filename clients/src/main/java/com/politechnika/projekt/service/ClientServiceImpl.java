@@ -7,9 +7,12 @@ import com.politechnika.projekt.model.ClientDTO;
 import com.politechnika.projekt.repository.ClientRepository;
 import com.politechnika.projekt.repository.RoleRepository;
 import javassist.NotFoundException;
+import org.apache.commons.lang.StringUtils;
+import org.apache.coyote.Response;
 import org.hibernate.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.crossstore.ChangeSetPersister;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.modelmapper.ModelMapper;
@@ -43,12 +46,36 @@ public class ClientServiceImpl implements ClientService {
     }
 
     @Override
-    public void editClient(Long id, ClientDTO clientDTO) {
+    public void putClient(Long id, ClientDTO clientDTO) {
         Optional<Client> existingClient = clientRepository.findById(id);
 
         existingClient.ifPresentOrElse(
                 client -> {
                     modelMapper.map(clientDTO, client);
+                    clientRepository.save(client);
+                },
+                () -> {
+                    throw new UserNotFoundException("There is no such a user");
+                }
+        );
+    }
+
+
+    @Override
+    public void editClient(Long id, ClientDTO clientDTO) {
+        Optional<Client> existingClient = clientRepository.findById(id);
+
+        existingClient.ifPresentOrElse(
+                client -> {
+                    if(!StringUtils.isEmpty(clientDTO.getUsername())){
+                        client.setUsername(clientDTO.getUsername());
+                    }
+                    if(!StringUtils.isEmpty(clientDTO.getEmail())){
+                        client.setUsername(clientDTO.getEmail());
+                    }
+                    if(!StringUtils.isEmpty(clientDTO.getPassword())){
+                        client.setUsername(clientDTO.getPassword());
+                    }
                     clientRepository.save(client);
                 },
                 () -> {

@@ -23,10 +23,6 @@ public class EmailServiceImpl implements EmailService {
 
     @Override
     public void sendEmail(String username) {
-
-/*        ClientDTO clientDTO = restTemplate.getForObject("http://localhost:8090/clients/"+clientId,ClientDTO.class);
-                //HttpMethod.GET, HttpEntity.EMPTY, ClientDTO.class).getBody(); Czemu nie przekazuje do clientDTO uzytkownika po ID*/
-
         Client client = clientRepository.findByUsername(username);
         Email email = createEmail(client);
 

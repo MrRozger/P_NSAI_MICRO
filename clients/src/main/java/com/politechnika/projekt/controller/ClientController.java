@@ -5,6 +5,7 @@ import com.politechnika.projekt.model.ClientDTO;
 import com.politechnika.projekt.repository.ClientRepository;
 import com.politechnika.projekt.service.ClientService;
 import com.politechnika.projekt.service.EmailService;
+import org.bouncycastle.cert.ocsp.Req;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -44,9 +45,14 @@ public class ClientController {
         return ResponseEntity.ok().build();
     }
 
-    @PatchMapping(path = "/{id}")
-    public void editPatient(@PathVariable Long id, @RequestBody ClientDTO client) {
-        clientService.editClient(id, client);
+    @PutMapping("/{id}")
+    public void putPatient(@PathVariable Long id, @RequestBody ClientDTO clientDTO) {
+        clientService.putClient(id, clientDTO);
+    }
+
+    @PatchMapping("/{id}")
+    public void editPatient(@PathVariable Long id, @RequestBody ClientDTO clientDTO){
+        clientService.editClient(id,clientDTO);
     }
 
     @DeleteMapping(path = "/{id}")

@@ -11,6 +11,8 @@ public interface ClientService {
 
     void createClient(Client client);
 
+    void putClient(Long id, ClientDTO clientDTO);
+
     void editClient(Long id, ClientDTO clientDTO);
 
     boolean removeClient(Long id);
