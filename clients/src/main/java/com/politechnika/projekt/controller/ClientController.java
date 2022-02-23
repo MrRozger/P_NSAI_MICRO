@@ -40,9 +40,9 @@ public class ClientController {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<?> saveClient(@RequestBody Client client) {
-        clientService.createClient(client);
+        Client createdClient = clientService.createClient(client);
         emailService.sendEmail(client.getUsername());
-        return ResponseEntity.ok().build();
+        return ResponseEntity.ok().body(createdClient);
     }
 
     @PutMapping("/{id}")

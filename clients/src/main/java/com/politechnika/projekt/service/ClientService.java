@@ -9,7 +9,7 @@ import java.util.Optional;
 
 public interface ClientService {
 
-    void createClient(Client client);
+    Client createClient(Client client);
 
     void putClient(Long id, ClientDTO clientDTO);
 

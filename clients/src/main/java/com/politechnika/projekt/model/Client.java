@@ -24,6 +24,9 @@ public class Client {
     @NotNull(message = "Username must not be null!")
     private String username;
 
+    private String firstName;
+    private String lastName;
+
     @NotNull(message = "Account's password must not be null")
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;

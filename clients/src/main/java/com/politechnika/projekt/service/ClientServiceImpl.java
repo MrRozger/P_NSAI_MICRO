@@ -39,10 +39,10 @@ public class ClientServiceImpl implements ClientService {
     }
 
     @Override
-    public void createClient(Client client) {
+    public Client createClient(Client client) {
         client.getClientRole().add(roleRepository.findByRole("ROLE_PATIENT").orElse(null));
         client.setPassword(hashPassword(client.getPassword()));
-        clientRepository.save(client);
+        return clientRepository.save(client);
     }
 
     @Override
@@ -67,13 +67,13 @@ public class ClientServiceImpl implements ClientService {
 
         existingClient.ifPresentOrElse(
                 client -> {
-                    if(!StringUtils.isEmpty(clientDTO.getUsername())){
+                    if(StringUtils.isNotBlank(clientDTO.getUsername())){
                         client.setUsername(clientDTO.getUsername());
                     }
-                    if(!StringUtils.isEmpty(clientDTO.getEmail())){
+                    if(StringUtils.isNotBlank(clientDTO.getEmail())){
                         client.setUsername(clientDTO.getEmail());
                     }
-                    if(!StringUtils.isEmpty(clientDTO.getPassword())){
+                    if(StringUtils.isNotBlank(clientDTO.getPassword())){
                         client.setUsername(clientDTO.getPassword());
                     }
                     clientRepository.save(client);

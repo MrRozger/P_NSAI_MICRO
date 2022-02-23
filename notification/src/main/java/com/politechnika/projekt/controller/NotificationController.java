@@ -37,7 +37,7 @@ public class NotificationController {
                 new javax.mail.Authenticator() {
                     protected PasswordAuthentication getPasswordAuthentication() {
                         return new PasswordAuthentication(username, password);
-                    }
+                   }
                 });
         Message msg = new MimeMessage(session);
         msg.setFrom(new InternetAddress(username, false));
