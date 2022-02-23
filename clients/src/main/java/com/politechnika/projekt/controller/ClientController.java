@@ -33,8 +33,8 @@ public class ClientController {
     }
 
     @GetMapping("/{clientId}")
-    public void getParticipantById(@PathVariable Long clientId) {
-        clientService.findById(clientId);
+    public Client getParticipantById(@PathVariable Long clientId)  {
+        return clientService.findById(clientId);
     }
 
     @PostMapping

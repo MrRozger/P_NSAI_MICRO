@@ -1,25 +1,14 @@
 package com.politechnika.projekt.service;
 
-import com.netflix.discovery.converters.Auto;
 import com.politechnika.projekt.exceptions.UserNotFoundException;
 import com.politechnika.projekt.model.Client;
 import com.politechnika.projekt.model.ClientDTO;
 import com.politechnika.projekt.repository.ClientRepository;
 import com.politechnika.projekt.repository.RoleRepository;
-import javassist.NotFoundException;
 import org.apache.commons.lang.StringUtils;
-import org.apache.coyote.Response;
-import org.hibernate.ObjectNotFoundException;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.crossstore.ChangeSetPersister;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.modelmapper.ModelMapper;
-import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.ResponseStatus;
-
-import java.nio.file.attribute.UserPrincipalNotFoundException;
 import java.util.List;
 import java.util.Optional;
 
@@ -67,6 +56,12 @@ public class ClientServiceImpl implements ClientService {
 
         existingClient.ifPresentOrElse(
                 client -> {
+                    if(StringUtils.isNotBlank(clientDTO.getFirstName())){
+                        client.setUsername(clientDTO.getFirstName());
+                    }
+                    if(StringUtils.isNotBlank(clientDTO.getLastName())){
+                        client.setUsername(clientDTO.getLastName());
+                    }
                     if(StringUtils.isNotBlank(clientDTO.getUsername())){
                         client.setUsername(clientDTO.getUsername());
                     }
@@ -99,11 +94,12 @@ public class ClientServiceImpl implements ClientService {
     }
 
     @Override
-    public Optional<Client> findById(Long id) {
+    public Client findById(Long id) {
         if (!clientRepository.existsById(id)) {
             throw new UserNotFoundException("There is no such a user");
         }
-        return clientRepository.findById(id);
+        Optional<Client> client = clientRepository.findById(id);
+        return client.isPresent()?client.get():null;
     }
 
     private String hashPassword(String password) {
