@@ -1,25 +1,14 @@
 package com.politechnika.projekt.service;
 
-import com.netflix.discovery.converters.Auto;
 import com.politechnika.projekt.exceptions.UserNotFoundException;
 import com.politechnika.projekt.model.Client;
 import com.politechnika.projekt.model.ClientDTO;
 import com.politechnika.projekt.repository.ClientRepository;
-import com.politechnika.projekt.repository.RoleRepository;
-import javassist.NotFoundException;
 import org.apache.commons.lang.StringUtils;
-import org.apache.coyote.Response;
-import org.hibernate.ObjectNotFoundException;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.crossstore.ChangeSetPersister;
-import org.springframework.http.ResponseEntity;
+import org.modelmapper.ModelMapper;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.modelmapper.ModelMapper;
-import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.ResponseStatus;
 
-import java.nio.file.attribute.UserPrincipalNotFoundException;
 import java.util.List;
 import java.util.Optional;
 
@@ -28,19 +17,16 @@ public class ClientServiceImpl implements ClientService {
 
 
     private final ClientRepository clientRepository;
-    private final RoleRepository roleRepository;
     private final ModelMapper modelMapper;
 
 
-    public ClientServiceImpl(ClientRepository clientRepository, RoleRepository roleRepository, ModelMapper modelMapper) {
+    public ClientServiceImpl(ClientRepository clientRepository, ModelMapper modelMapper) {
         this.clientRepository = clientRepository;
-        this.roleRepository = roleRepository;
         this.modelMapper = modelMapper;
     }
 
     @Override
     public Client createClient(Client client) {
-        client.getClientRole().add(roleRepository.findByRole("ROLE_PATIENT").orElse(null));
         client.setPassword(hashPassword(client.getPassword()));
         return clientRepository.save(client);
     }
