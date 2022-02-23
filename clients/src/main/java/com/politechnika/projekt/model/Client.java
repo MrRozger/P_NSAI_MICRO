@@ -27,7 +27,11 @@ public class Client {
     @NotNull(message = "Username must not be null!")
     private String username;
 
+
+    @NotNull
     private String firstName;
+
+    @NotNull
     private String lastName;
 
     @NotNull(message = "Account's password must not be null")

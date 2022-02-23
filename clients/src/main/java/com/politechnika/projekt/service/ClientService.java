@@ -19,6 +19,6 @@ public interface ClientService {
 
     List<Client> findAll();
 
-    Optional<Client> findById(Long id);
+    Client findById(Long id);
 
 }

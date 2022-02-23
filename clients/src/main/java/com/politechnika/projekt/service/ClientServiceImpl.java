@@ -53,6 +53,12 @@ public class ClientServiceImpl implements ClientService {
 
         existingClient.ifPresentOrElse(
                 client -> {
+                    if(StringUtils.isNotBlank(clientDTO.getFirstName())){
+                        client.setUsername(clientDTO.getFirstName());
+                    }
+                    if(StringUtils.isNotBlank(clientDTO.getLastName())){
+                        client.setUsername(clientDTO.getLastName());
+                    }
                     if(StringUtils.isNotBlank(clientDTO.getUsername())){
                         client.setUsername(clientDTO.getUsername());
                     }
@@ -85,11 +91,12 @@ public class ClientServiceImpl implements ClientService {
     }
 
     @Override
-    public Optional<Client> findById(Long id) {
+    public Client findById(Long id) {
         if (!clientRepository.existsById(id)) {
             throw new UserNotFoundException("There is no such a user");
         }
-        return clientRepository.findById(id);
+        Optional<Client> client = clientRepository.findById(id);
+        return client.isPresent()?client.get():null;
     }
 
     private String hashPassword(String password) {
