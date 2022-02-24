@@ -11,11 +11,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -46,14 +48,21 @@ public class AppointmentController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public ResponseEntity<?> addAppointment(@RequestBody Appointment appointment) {
-        Appointment addedAppointment = appointmentService.createAppointment(appointment);
-        return ResponseEntity.ok().body(addedAppointment);
+    public ResponseEntity<?> createAppointment(@Valid @RequestBody Appointment appointment) {
+        Appointment createdAppointment = null;
+        createdAppointment = appointmentService.createAppointment(appointment);
+        return ResponseEntity.ok().body(createdAppointment);
     }
 
     @PatchMapping("/{appointmentId}")
-    public ResponseEntity<?> editPatient(@PathVariable Long appointmentId, @RequestBody AppointmentDto appointmentDto) {
+    public ResponseEntity<?> editAppointment(@PathVariable Long appointmentId, @RequestBody AppointmentDto appointmentDto) {
         Appointment editedAppointment = appointmentService.editAppointment(appointmentId, appointmentDto);
+        return ResponseEntity.ok().body(editedAppointment);
+    }
+
+    @PutMapping("/{appointmentId}/notes")
+    public ResponseEntity<?> addAppointmentNotes(@PathVariable Long appointmentId, @RequestBody String notes) {
+        Appointment editedAppointment = appointmentService.addAppointmentNotes(appointmentId, notes);
         return ResponseEntity.ok().body(editedAppointment);
     }
 

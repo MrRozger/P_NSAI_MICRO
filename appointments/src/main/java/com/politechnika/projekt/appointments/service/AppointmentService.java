@@ -1,7 +1,8 @@
 package com.politechnika.projekt.appointments.service;
 
 import com.politechnika.projekt.appointments.exceptions.AppointmentNotFoundException;
-import com.politechnika.projekt.appointments.exceptions.PatientOrDoctorNotFoundException;
+import com.politechnika.projekt.appointments.exceptions.DoctorNotFoundException;
+import com.politechnika.projekt.appointments.exceptions.PatientNotFoundException;
 import com.politechnika.projekt.appointments.model.Appointment;
 import com.politechnika.projekt.appointments.model.AppointmentDto;
 import com.politechnika.projekt.appointments.model.ClientDto;
@@ -26,10 +27,13 @@ public class AppointmentService {
     public Appointment createAppointment(Appointment appointment) {
         ClientDto doctor = clientServiceFeignClient.getClient(appointment.getDoctorId());
         ClientDto patient = clientServiceFeignClient.getClient(appointment.getPatientId());
-        if (doctor != null && patient != null) {
-            return appointmentRepository.save(appointment);
+        if(doctor == null || !"ROLE_DOCTOR".equals(doctor.getRole())) {
+            throw new DoctorNotFoundException("Doctor was not found");
         }
-        throw new PatientOrDoctorNotFoundException("Patient or doctor was not found. Cannot create an appointment");
+        if(patient == null || !"ROLE_PATIENT".equals(patient.getRole())) {
+            throw new PatientNotFoundException("Patient was not found");
+        }
+        return appointmentRepository.save(appointment);
     }
 
     public Appointment editAppointment(Long appointmentId, AppointmentDto appointmentDto) {
@@ -61,14 +65,28 @@ public class AppointmentService {
     }
 
     public List<Appointment> getAllAppointmentsByPatientId(Long patientId) {
-        return appointmentRepository.findAllByPatientId(patientId);
+        String role = clientServiceFeignClient.getRoleByClientId(patientId);
+        if("ROLE_PATIENT".equals(role)) {
+            return appointmentRepository.findAllByPatientId(patientId);
+        }
+        throw new PatientNotFoundException("Patient was not found");
     }
 
     public List<Appointment> getAllAppointmentsByDoctorId(Long doctorId) {
-        return appointmentRepository.findAllByDoctorId(doctorId);
+        String role = clientServiceFeignClient.getRoleByClientId(doctorId);
+        if("ROLE_DOCTOR".equals(role)) {
+            return appointmentRepository.findAllByDoctorId(doctorId);
+        }
+        throw new DoctorNotFoundException("Doctor was not found");
     }
 
     public List<Appointment> getAllAppointments() {
         return appointmentRepository.findAll();
+    }
+
+    public Appointment addAppointmentNotes(Long appointmentId, String notes) {
+        Appointment existingAppointment = findAppointment(appointmentId);
+        existingAppointment.setNotes(notes);
+        return appointmentRepository.save(existingAppointment);
     }
 }

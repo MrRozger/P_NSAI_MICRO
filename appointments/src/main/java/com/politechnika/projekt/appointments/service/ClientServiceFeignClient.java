@@ -16,5 +16,7 @@ public interface ClientServiceFeignClient {
     @GetMapping("/clients/{clientId}")
     ClientDto getClient(@PathVariable Long clientId);
 
+    @GetMapping("/clients/{clientId}/role")
+    String getRoleByClientId(@PathVariable Long clientId);
 
 }

@@ -37,6 +37,11 @@ public class ClientController {
         return clientService.findById(clientId);
     }
 
+    @GetMapping("/{clientId}/role")
+    public String getRoleByClientId(@PathVariable Long clientId)  {
+        return clientService.getRoleByClientId(clientId);
+    }
+
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<?> saveClient(@RequestBody Client client) {
