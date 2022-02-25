@@ -25,8 +25,6 @@ public class Appointment {
     @NotNull(message = "DoctorId cannot be null")
     private Long doctorId;
 
-    private String notes;
-
     private boolean cancelled;
 
     @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm")
