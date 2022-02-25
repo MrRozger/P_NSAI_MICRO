@@ -14,27 +14,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a659fe64-6408-4f29-a0cd-f423995ccfbd" name="Default Changelist" comment="Configuration Services - Eureka,Gateway">
-      <change afterPath="$PROJECT_DIR$/appointments/src/main/java/com/politechnika/projekt/appointments/exceptions/DoctorNotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/appointments/src/main/java/com/politechnika/projekt/appointments/exceptions/ExceptionControllerAdvice.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/prescriptioncreator/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/prescriptioncreator/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/prescriptioncreator/src/main/java/com/politechnika/projekt/prescriptioncreator/PrescriptioncreatorApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/prescriptioncreator/src/main/java/com/politechnika/projekt/prescriptioncreator/model/ClientDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/prescriptioncreator/src/main/java/com/politechnika/projekt/prescriptioncreator/model/Perscription.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/prescriptioncreator/src/main/java/com/politechnika/projekt/prescriptioncreator/service/ClientServiceFeignClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/prescriptioncreator/src/main/java/com/politechnika/projekt/prescriptioncreator/service/PerscriptionService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/prescriptioncreator/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/appointments/src/main/java/com/politechnika/projekt/appointments/configuration/AppointmentsServerConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/clients/src/main/java/com/politechnika/projekt/configuration/ClientServerConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/politechnika/projekt/configuration/AuthServerConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/politechnika/projekt/configuration/ClientDetailsService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/politechnika/projekt/configuration/WebSecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/politechnika/projekt/model/Client.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/politechnika/projekt/model/Role.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/politechnika/projekt/repository/ClientRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointments/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/appointments/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/appointments/src/main/java/com/politechnika/projekt/appointments/controller/AppointmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/appointments/src/main/java/com/politechnika/projekt/appointments/controller/AppointmentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/appointments/src/main/java/com/politechnika/projekt/appointments/exceptions/PatientOrDoctorNotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/appointments/src/main/java/com/politechnika/projekt/appointments/exceptions/PatientNotFoundException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/appointments/src/main/java/com/politechnika/projekt/appointments/model/Appointment.java" beforeDir="false" afterPath="$PROJECT_DIR$/appointments/src/main/java/com/politechnika/projekt/appointments/model/Appointment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/appointments/src/main/java/com/politechnika/projekt/appointments/model/ClientDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/appointments/src/main/java/com/politechnika/projekt/appointments/model/ClientDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/appointments/src/main/java/com/politechnika/projekt/appointments/service/AppointmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/appointments/src/main/java/com/politechnika/projekt/appointments/service/AppointmentService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/appointments/src/main/java/com/politechnika/projekt/appointments/service/ClientServiceFeignClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/appointments/src/main/java/com/politechnika/projekt/appointments/service/ClientServiceFeignClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointments/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/appointments/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clients/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/clients/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/clients/src/main/java/com/politechnika/projekt/controller/ClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/clients/src/main/java/com/politechnika/projekt/controller/ClientController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clients/src/main/java/com/politechnika/projekt/service/ClientService.java" beforeDir="false" afterPath="$PROJECT_DIR$/clients/src/main/java/com/politechnika/projekt/service/ClientService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clients/src/main/java/com/politechnika/projekt/model/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/clients/src/main/java/com/politechnika/projekt/model/Client.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/clients/src/main/java/com/politechnika/projekt/service/ClientServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/clients/src/main/java/com/politechnika/projekt/service/ClientServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/clients/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/clients/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notification/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/notification/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notification/src/main/java/com/politechnika/projekt/NotificationApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/notification/src/main/java/com/politechnika/projekt/NotificationApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notification/src/main/java/com/politechnika/projekt/controller/NotificationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/notification/src/main/java/com/politechnika/projekt/controller/NotificationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notification/src/test/java/com/politechnika/projekt/NotificationApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/notification/src/test/java/com/politechnika/projekt/NotificationApplicationTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,13 +54,12 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitSEFilterConfiguration">
-    <file-type-list>
-      <filtered-out-file-type name="LOCAL_BRANCH" />
-      <filtered-out-file-type name="REMOTE_BRANCH" />
-      <filtered-out-file-type name="TAG" />
-      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
-    </file-type-list>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="C:\Users\db2admin\.m2\wrapper\dists\apache-maven-3.8.4-bin\52ccbt68d252mdldqsfsn03jlf\apache-maven-3.8.4" />
+      </MavenGeneralSettings>
+    </option>
   </component>
   <component name="ProjectId" id="257MLkxMUoOnweErBALtjUfxVaV" />
   <component name="ProjectViewState">
@@ -71,29 +72,19 @@
     <property name="RequestMappingsPanelWidth0" value="75" />
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SONARLINT_PRECOMMIT_ANALYSIS" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/przemoliki/likimobilerecrutation" />
-    <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/gateway/pom.xml" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.tabs" />
+    <property name="project.structure.side.proportion" value="0.0" />
   </component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
-      <recent name="com.politechnika.projekt.appointments.model" />
-    </key>
-    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="com.politechnika.projekt.prescriptioncreator" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.politechnika.projekt.appointments.exceptions" />
+      <recent name="com.politechnika.projekt" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -104,15 +95,13 @@
     </option>
   </component>
   <component name="RunManager" selected="Spring Boot.AppointmentsApplication">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -151,6 +140,14 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="AuthApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="auth" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.politechnika.projekt.AuthApplication" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ClientsApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="clients" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.politechnika.projekt.ClientsApplication" />
@@ -183,29 +180,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PrescriptioncreatorApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
-      <module name="prescriptioncreator" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.politechnika.projekt.prescriptioncreator.PrescriptioncreatorApplication" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration default="true" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <option name="ALTERNATIVE_JRE_PATH" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <list>
-      <item itemvalue="Maven.eureka [clean,install]" />
-      <item itemvalue="Spring Boot.NotificationApplication" />
-      <item itemvalue="Spring Boot.AppointmentsApplication" />
-      <item itemvalue="Spring Boot.ClientsApplication" />
-      <item itemvalue="Spring Boot.EurekaApplication" />
-      <item itemvalue="Spring Boot.GatewayApplication" />
-      <item itemvalue="Spring Boot.PrescriptioncreatorApplication" />
-    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Maven.eureka [clean,install]" />
@@ -227,11 +207,7 @@
       <workItem from="1645035913242" duration="13999000" />
       <workItem from="1645116630731" duration="10018000" />
       <workItem from="1645132165801" duration="2899000" />
-      <workItem from="1645203870711" duration="1629000" />
-      <workItem from="1645386425933" duration="8114000" />
-      <workItem from="1645513089601" duration="10244000" />
-      <workItem from="1645604915348" duration="15793000" />
-      <workItem from="1645652737313" duration="8285000" />
+      <workItem from="1645743474338" duration="11184000" />
     </task>
     <task id="LOCAL-00001" summary="Configuration Services - Eureka,Gateway">
       <created>1644881517724</created>
@@ -240,21 +216,7 @@
       <option name="project" value="LOCAL" />
       <updated>1644881517724</updated>
     </task>
-    <task id="LOCAL-00002" summary="Appointment - service, fixes in other services">
-      <created>1645635345071</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1645635345071</updated>
-    </task>
-    <task id="LOCAL-00003" summary="client model role changes">
-      <created>1645657430171</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1645657430171</updated>
-    </task>
-    <option name="localTasksCounter" value="4" />
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -274,64 +236,166 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Configuration Services - Eureka,Gateway" />
-    <MESSAGE value="Appointment - service, fixes in other services" />
-    <MESSAGE value="client model role changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="client model role changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Configuration Services - Eureka,Gateway" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="376" y="0" key="#Project_Structure" timestamp="1645132122580">
+      <screen x="0" y="0" width="2560" height="1359" />
+    </state>
+    <state x="376" y="0" key="#Project_Structure/0.0.2560.1359/2560.0.1920.1160@0.0.2560.1359" timestamp="1645132122580" />
+    <state x="613" y="326" width="1602" height="910" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1644874124952">
+      <screen x="0" y="0" width="2560" height="1359" />
+    </state>
+    <state x="613" y="326" width="1602" height="910" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.2560.1359/2560.0.1920.1160@0.0.2560.1359" timestamp="1644874124952" />
+    <state x="832" y="100" key="#com.intellij.ide.util.MemberChooser" timestamp="1645749047702">
+      <screen x="0" y="0" width="2560" height="1359" />
+    </state>
+    <state x="832" y="100" key="#com.intellij.ide.util.MemberChooser/0.0.2560.1359/2560.0.1920.1160/4480.0.1280.680@0.0.2560.1359" timestamp="1645733385661" />
+    <state x="832" y="100" key="#com.intellij.ide.util.MemberChooser/0.0.2560.1359/2560.0.1920.1160@0.0.2560.1359" timestamp="1645127927070" />
+    <state x="3184" y="85" key="#com.intellij.ide.util.MemberChooser/0.0.2560.1359/2560.0.1920.1160@2560.0.1920.1160" timestamp="1645044541104" />
+    <state x="832" y="100" key="#com.intellij.ide.util.MemberChooser/2560.0.1920.1119/0.0.2560.1359@0.0.2560.1359" timestamp="1645749047702" />
+    <state x="947" y="416" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1644874119418">
+      <screen x="0" y="0" width="2560" height="1359" />
+    </state>
+    <state x="947" y="416" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.2560.1359/2560.0.1920.1160@0.0.2560.1359" timestamp="1644874119418" />
+    <state x="687" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1645129994301">
+      <screen x="0" y="0" width="2560" height="1359" />
+    </state>
+    <state x="687" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.2560.1359/2560.0.1920.1160@0.0.2560.1359" timestamp="1645129994301" />
+    <state x="813" y="239" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1645743817017">
+      <screen x="0" y="0" width="2560" height="1359" />
+    </state>
+    <state x="813" y="239" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/2560.0.1920.1119/0.0.2560.1359@0.0.2560.1359" timestamp="1645743817017" />
+    <state width="546" height="814" key="DebuggerActiveHint" timestamp="1645129127165">
+      <screen x="0" y="0" width="2560" height="1359" />
+    </state>
+    <state width="546" height="814" key="DebuggerActiveHint/0.0.2560.1359/2560.0.1920.1160@0.0.2560.1359" timestamp="1645129127165" />
+    <state x="791" y="312" key="FileChooserDialogImpl" timestamp="1644887260058">
+      <screen x="0" y="0" width="2560" height="1359" />
+    </state>
+    <state x="791" y="312" key="FileChooserDialogImpl/0.0.2560.1359/2560.0.1920.1160@0.0.2560.1359" timestamp="1644887260058" />
+    <state width="2186" height="400" key="GridCell.Tab.0.bottom" timestamp="1645752592111">
+      <screen x="0" y="0" width="2560" height="1359" />
+    </state>
+    <state width="1935" height="559" key="GridCell.Tab.0.bottom/0.0.2560.1359/2560.0.1920.1160/4480.0.1280.680@0.0.2560.1359" timestamp="1645734159869" />
+    <state width="1701" height="375" key="GridCell.Tab.0.bottom/0.0.2560.1359/2560.0.1920.1160@0.0.2560.1359" timestamp="1645134454927" />
+    <state width="1253" height="461" key="GridCell.Tab.0.bottom/0.0.2560.1359/2560.0.1920.1160@2560.0.1920.1160" timestamp="1645047750873" />
+    <state width="2186" height="400" key="GridCell.Tab.0.bottom/2560.0.1920.1119/0.0.2560.1359@0.0.2560.1359" timestamp="1645752592111" />
+    <state width="2186" height="400" key="GridCell.Tab.0.center" timestamp="1645752592111">
+      <screen x="0" y="0" width="2560" height="1359" />
+    </state>
+    <state width="1935" height="559" key="GridCell.Tab.0.center/0.0.2560.1359/2560.0.1920.1160/4480.0.1280.680@0.0.2560.1359" timestamp="1645734159869" />
+    <state width="1701" height="375" key="GridCell.Tab.0.center/0.0.2560.1359/2560.0.1920.1160@0.0.2560.1359" timestamp="1645134454927" />
+    <state width="1253" height="461" key="GridCell.Tab.0.center/0.0.2560.1359/2560.0.1920.1160@2560.0.1920.1160" timestamp="1645047750873" />
+    <state width="2186" height="400" key="GridCell.Tab.0.center/2560.0.1920.1119/0.0.2560.1359@0.0.2560.1359" timestamp="1645752592111" />
+    <state width="2186" height="400" key="GridCell.Tab.0.left" timestamp="1645752592111">
+      <screen x="0" y="0" width="2560" height="1359" />
+    </state>
+    <state width="1935" height="559" key="GridCell.Tab.0.left/0.0.2560.1359/2560.0.1920.1160/4480.0.1280.680@0.0.2560.1359" timestamp="1645734159869" />
+    <state width="1701" height="375" key="GridCell.Tab.0.left/0.0.2560.1359/2560.0.1920.1160@0.0.2560.1359" timestamp="1645134454927" />
+    <state width="1253" height="461" key="GridCell.Tab.0.left/0.0.2560.1359/2560.0.1920.1160@2560.0.1920.1160" timestamp="1645047750873" />
+    <state width="2186" height="400" key="GridCell.Tab.0.left/2560.0.1920.1119/0.0.2560.1359@0.0.2560.1359" timestamp="1645752592111" />
+    <state width="2186" height="400" key="GridCell.Tab.0.right" timestamp="1645752592111">
+      <screen x="0" y="0" width="2560" height="1359" />
+    </state>
+    <state width="1935" height="559" key="GridCell.Tab.0.right/0.0.2560.1359/2560.0.1920.1160/4480.0.1280.680@0.0.2560.1359" timestamp="1645734159869" />
+    <state width="1701" height="375" key="GridCell.Tab.0.right/0.0.2560.1359/2560.0.1920.1160@0.0.2560.1359" timestamp="1645134454927" />
+    <state width="1253" height="461" key="GridCell.Tab.0.right/0.0.2560.1359/2560.0.1920.1160@2560.0.1920.1160" timestamp="1645047750873" />
+    <state width="2186" height="400" key="GridCell.Tab.0.right/2560.0.1920.1119/0.0.2560.1359@0.0.2560.1359" timestamp="1645752592111" />
+    <state width="2186" height="400" key="GridCell.Tab.1.bottom" timestamp="1645752592111">
+      <screen x="0" y="0" width="2560" height="1359" />
+    </state>
+    <state width="1935" height="559" key="GridCell.Tab.1.bottom/0.0.2560.1359/2560.0.1920.1160/4480.0.1280.680@0.0.2560.1359" timestamp="1645734159869" />
+    <state width="1701" height="375" key="GridCell.Tab.1.bottom/0.0.2560.1359/2560.0.1920.1160@0.0.2560.1359" timestamp="1645134454927" />
+    <state width="1253" height="461" key="GridCell.Tab.1.bottom/0.0.2560.1359/2560.0.1920.1160@2560.0.1920.1160" timestamp="1645047750873" />
+    <state width="2186" height="400" key="GridCell.Tab.1.bottom/2560.0.1920.1119/0.0.2560.1359@0.0.2560.1359" timestamp="1645752592111" />
+    <state width="2186" height="400" key="GridCell.Tab.1.center" timestamp="1645752592111">
+      <screen x="0" y="0" width="2560" height="1359" />
+    </state>
+    <state width="1935" height="559" key="GridCell.Tab.1.center/0.0.2560.1359/2560.0.1920.1160/4480.0.1280.680@0.0.2560.1359" timestamp="1645734159869" />
+    <state width="1701" height="375" key="GridCell.Tab.1.center/0.0.2560.1359/2560.0.1920.1160@0.0.2560.1359" timestamp="1645134454927" />
+    <state width="1253" height="461" key="GridCell.Tab.1.center/0.0.2560.1359/2560.0.1920.1160@2560.0.1920.1160" timestamp="1645047750873" />
+    <state width="2186" height="400" key="GridCell.Tab.1.center/2560.0.1920.1119/0.0.2560.1359@0.0.2560.1359" timestamp="1645752592111" />
+    <state width="2186" height="400" key="GridCell.Tab.1.left" timestamp="1645752592111">
+      <screen x="0" y="0" width="2560" height="1359" />
+    </state>
+    <state width="1935" height="559" key="GridCell.Tab.1.left/0.0.2560.1359/2560.0.1920.1160/4480.0.1280.680@0.0.2560.1359" timestamp="1645734159869" />
+    <state width="1701" height="375" key="GridCell.Tab.1.left/0.0.2560.1359/2560.0.1920.1160@0.0.2560.1359" timestamp="1645134454927" />
+    <state width="1253" height="461" key="GridCell.Tab.1.left/0.0.2560.1359/2560.0.1920.1160@2560.0.1920.1160" timestamp="1645047750873" />
+    <state width="2186" height="400" key="GridCell.Tab.1.left/2560.0.1920.1119/0.0.2560.1359@0.0.2560.1359" timestamp="1645752592111" />
+    <state width="2186" height="400" key="GridCell.Tab.1.right" timestamp="1645752592111">
+      <screen x="0" y="0" width="2560" height="1359" />
+    </state>
+    <state width="1935" height="559" key="GridCell.Tab.1.right/0.0.2560.1359/2560.0.1920.1160/4480.0.1280.680@0.0.2560.1359" timestamp="1645734159869" />
+    <state width="1701" height="375" key="GridCell.Tab.1.right/0.0.2560.1359/2560.0.1920.1160@0.0.2560.1359" timestamp="1645134454927" />
+    <state width="1253" height="461" key="GridCell.Tab.1.right/0.0.2560.1359/2560.0.1920.1160@2560.0.1920.1160" timestamp="1645047750873" />
+    <state width="2186" height="400" key="GridCell.Tab.1.right/2560.0.1920.1119/0.0.2560.1359@0.0.2560.1359" timestamp="1645752592111" />
+    <state width="2186" height="311" key="GridCell.Tab.2.bottom" timestamp="1645749388569">
+      <screen x="0" y="0" width="2560" height="1359" />
+    </state>
+    <state width="1701" height="375" key="GridCell.Tab.2.bottom/0.0.2560.1359/2560.0.1920.1160@0.0.2560.1359" timestamp="1645129717347" />
+    <state width="1253" height="279" key="GridCell.Tab.2.bottom/0.0.2560.1359/2560.0.1920.1160@2560.0.1920.1160" timestamp="1644948279197" />
+    <state width="2186" height="311" key="GridCell.Tab.2.bottom/2560.0.1920.1119/0.0.2560.1359@0.0.2560.1359" timestamp="1645749388569" />
+    <state width="2186" height="311" key="GridCell.Tab.2.center" timestamp="1645749388569">
+      <screen x="0" y="0" width="2560" height="1359" />
+    </state>
+    <state width="1701" height="375" key="GridCell.Tab.2.center/0.0.2560.1359/2560.0.1920.1160@0.0.2560.1359" timestamp="1645129717347" />
+    <state width="1253" height="279" key="GridCell.Tab.2.center/0.0.2560.1359/2560.0.1920.1160@2560.0.1920.1160" timestamp="1644948279197" />
+    <state width="2186" height="311" key="GridCell.Tab.2.center/2560.0.1920.1119/0.0.2560.1359@0.0.2560.1359" timestamp="1645749388569" />
+    <state width="2186" height="311" key="GridCell.Tab.2.left" timestamp="1645749388569">
+      <screen x="0" y="0" width="2560" height="1359" />
+    </state>
+    <state width="1701" height="375" key="GridCell.Tab.2.left/0.0.2560.1359/2560.0.1920.1160@0.0.2560.1359" timestamp="1645129717346" />
+    <state width="1253" height="279" key="GridCell.Tab.2.left/0.0.2560.1359/2560.0.1920.1160@2560.0.1920.1160" timestamp="1644948279197" />
+    <state width="2186" height="311" key="GridCell.Tab.2.left/2560.0.1920.1119/0.0.2560.1359@0.0.2560.1359" timestamp="1645749388569" />
+    <state width="2186" height="311" key="GridCell.Tab.2.right" timestamp="1645749388569">
+      <screen x="0" y="0" width="2560" height="1359" />
+    </state>
+    <state width="1701" height="375" key="GridCell.Tab.2.right/0.0.2560.1359/2560.0.1920.1160@0.0.2560.1359" timestamp="1645129717347" />
+    <state width="1253" height="279" key="GridCell.Tab.2.right/0.0.2560.1359/2560.0.1920.1160@2560.0.1920.1160" timestamp="1644948279197" />
+    <state width="2186" height="311" key="GridCell.Tab.2.right/2560.0.1920.1119/0.0.2560.1359@0.0.2560.1359" timestamp="1645749388569" />
+    <state x="604" y="187" key="Vcs.Push.Dialog.v2" timestamp="1644881549289">
+      <screen x="0" y="0" width="2560" height="1359" />
+    </state>
+    <state x="604" y="187" key="Vcs.Push.Dialog.v2/0.0.2560.1359/2560.0.1920.1160@0.0.2560.1359" timestamp="1644881549289" />
+    <state x="860" y="385" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1645051778478">
+      <screen x="0" y="0" width="2560" height="1359" />
+    </state>
+    <state x="860" y="385" key="com.intellij.testIntegration.createTest.CreateTestDialog/0.0.2560.1359/2560.0.1920.1160@0.0.2560.1359" timestamp="1645051778478" />
+    <state x="442" y="150" key="new project wizard" timestamp="1645728764353">
+      <screen x="0" y="0" width="2560" height="1359" />
+    </state>
+    <state x="442" y="150" key="new project wizard/0.0.2560.1359/2560.0.1920.1160/4480.0.1280.680@0.0.2560.1359" timestamp="1645728764353" />
+    <state x="442" y="150" key="new project wizard/0.0.2560.1359/2560.0.1920.1160@0.0.2560.1359" timestamp="1645132103651" />
+    <state x="3157" y="189" key="refactoring.ChangeSignatureDialog" timestamp="1644946626598">
+      <screen x="2560" y="0" width="1920" height="1160" />
+    </state>
+    <state x="3157" y="189" key="refactoring.ChangeSignatureDialog/0.0.2560.1359/2560.0.1920.1160@2560.0.1920.1160" timestamp="1644946626598" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/clients/src/main/java/com/politechnika/projekt/controller/ClientController.java</url>
-          <line>48</line>
+          <line>43</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/clients/src/main/java/com/politechnika/projekt/service/EmailServiceImpl.java</url>
-          <line>25</line>
+          <line>29</line>
           <option name="timeStamp" value="9" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/clients/src/main/java/com/politechnika/projekt/service/EmailServiceImpl.java</url>
-          <line>26</line>
+          <line>30</line>
           <option name="timeStamp" value="10" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/appointments/src/main/java/com/politechnika/projekt/appointments/service/AppointmentService.java</url>
-          <line>34</line>
-          <option name="timeStamp" value="13" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/appointments/src/main/java/com/politechnika/projekt/appointments/service/AppointmentService.java</url>
-          <line>29</line>
-          <option name="timeStamp" value="16" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
-  </component>
-  <component name="XSLT-Support.FileAssociations.UIState">
-    <expand />
-    <select />
-  </component>
-  <component name="com.vaadin.designer2.intellij.settings.SizePresetsSettingsComponent">
-    <option name="sizePresets">
-      <list>
-        <SizePreset>
-          <option name="caption" value="Phone" />
-          <option name="height" value="568" />
-          <option name="width" value="320" />
-        </SizePreset>
-        <SizePreset>
-          <option name="caption" value="Tablet" />
-          <option name="height" value="1024" />
-          <option name="width" value="768" />
-        </SizePreset>
-        <SizePreset>
-          <option name="caption" value="Desktop" />
-          <option name="height" value="900" />
-          <option name="width" value="1440" />
-        </SizePreset>
-      </list>
-    </option>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="com.politechnika.projekt.Client" memberName="role" />
+      </pinned-members>
+    </pin-to-top-manager>
   </component>
 </project>

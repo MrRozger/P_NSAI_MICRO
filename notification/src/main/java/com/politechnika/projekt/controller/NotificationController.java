@@ -37,7 +37,7 @@ public class NotificationController {
                 new javax.mail.Authenticator() {
                     protected PasswordAuthentication getPasswordAuthentication() {
                         return new PasswordAuthentication(username, password);
-                   }
+                    }
                 });
         Message msg = new MimeMessage(session);
         msg.setFrom(new InternetAddress(username, false));
@@ -47,7 +47,7 @@ public class NotificationController {
         msg.setSubject(email.getSubject());
         msg.setSentDate(new Date());
         MimeBodyPart messageBodyPart = new MimeBodyPart();
-        messageBodyPart.setContent(email.getBody(),"text/plain; charset=utf-8");
+        messageBodyPart.setContent(email.getBody(), "text/plain; charset=utf-8");
 
         Multipart multipart = new MimeMultipart();
         multipart.addBodyPart(messageBodyPart);

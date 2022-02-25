@@ -53,19 +53,19 @@ public class ClientServiceImpl implements ClientService {
 
         existingClient.ifPresentOrElse(
                 client -> {
-                    if(StringUtils.isNotBlank(clientDTO.getFirstName())){
+                    if (StringUtils.isNotBlank(clientDTO.getFirstName())) {
                         client.setUsername(clientDTO.getFirstName());
                     }
-                    if(StringUtils.isNotBlank(clientDTO.getLastName())){
+                    if (StringUtils.isNotBlank(clientDTO.getLastName())) {
                         client.setUsername(clientDTO.getLastName());
                     }
-                    if(StringUtils.isNotBlank(clientDTO.getUsername())){
+                    if (StringUtils.isNotBlank(clientDTO.getUsername())) {
                         client.setUsername(clientDTO.getUsername());
                     }
-                    if(StringUtils.isNotBlank(clientDTO.getEmail())){
+                    if (StringUtils.isNotBlank(clientDTO.getEmail())) {
                         client.setUsername(clientDTO.getEmail());
                     }
-                    if(StringUtils.isNotBlank(clientDTO.getPassword())){
+                    if (StringUtils.isNotBlank(clientDTO.getPassword())) {
                         client.setUsername(clientDTO.getPassword());
                     }
                     clientRepository.save(client);
@@ -96,7 +96,7 @@ public class ClientServiceImpl implements ClientService {
             throw new UserNotFoundException("There is no such a user");
         }
         Optional<Client> client = clientRepository.findById(id);
-        return client.isPresent()?client.get():null;
+        return client.isPresent() ? client.get() : null;
     }
 
     @Override

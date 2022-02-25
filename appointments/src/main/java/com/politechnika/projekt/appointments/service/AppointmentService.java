@@ -27,10 +27,10 @@ public class AppointmentService {
     public Appointment createAppointment(Appointment appointment) {
         ClientDto doctor = clientServiceFeignClient.getClient(appointment.getDoctorId());
         ClientDto patient = clientServiceFeignClient.getClient(appointment.getPatientId());
-        if(doctor == null || !"ROLE_DOCTOR".equals(doctor.getRole())) {
+        if (doctor == null || !"ROLE_DOCTOR".equals(doctor.getRole())) {
             throw new DoctorNotFoundException("Doctor was not found");
         }
-        if(patient == null || !"ROLE_PATIENT".equals(patient.getRole())) {
+        if (patient == null || !"ROLE_PATIENT".equals(patient.getRole())) {
             throw new PatientNotFoundException("Patient was not found");
         }
         return appointmentRepository.save(appointment);
@@ -66,7 +66,7 @@ public class AppointmentService {
 
     public List<Appointment> getAllAppointmentsByPatientId(Long patientId) {
         String role = clientServiceFeignClient.getRoleByClientId(patientId);
-        if("ROLE_PATIENT".equals(role)) {
+        if ("ROLE_PATIENT".equals(role)) {
             return appointmentRepository.findAllByPatientId(patientId);
         }
         throw new PatientNotFoundException("Patient was not found");
@@ -74,7 +74,7 @@ public class AppointmentService {
 
     public List<Appointment> getAllAppointmentsByDoctorId(Long doctorId) {
         String role = clientServiceFeignClient.getRoleByClientId(doctorId);
-        if("ROLE_DOCTOR".equals(role)) {
+        if ("ROLE_DOCTOR".equals(role)) {
             return appointmentRepository.findAllByDoctorId(doctorId);
         }
         throw new DoctorNotFoundException("Doctor was not found");

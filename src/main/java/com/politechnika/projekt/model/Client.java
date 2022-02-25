@@ -1,17 +1,12 @@
 package com.politechnika.projekt.model;
 
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.annotations.ColumnDefault;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
-import java.util.HashSet;
-import java.util.Set;
 
 @Entity
 @Getter
@@ -43,5 +38,9 @@ public class Client {
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private Role role = Role.ROLE_PATIENT;
+
+/*    @JsonIgnore
+    @ManyToMany(fetch = FetchType.EAGER)
+    private Set<Role> role = new HashSet<>(0);*/
 
 }
