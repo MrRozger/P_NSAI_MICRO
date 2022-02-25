@@ -84,9 +84,4 @@ public class AppointmentService {
         return appointmentRepository.findAll();
     }
 
-    public Appointment addAppointmentNotes(Long appointmentId, String notes) {
-        Appointment existingAppointment = findAppointment(appointmentId);
-        existingAppointment.setNotes(notes);
-        return appointmentRepository.save(existingAppointment);
-    }
 }

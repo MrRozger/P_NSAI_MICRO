@@ -36,6 +36,11 @@ public class AppointmentController {
         return appointmentService.getAllAppointments();
     }
 
+    @GetMapping("/{appointmentId}")
+    public Appointment findAppointment(@PathVariable Long appointmentId) {
+        return appointmentService.findAppointment(appointmentId);
+    }
+
     @GetMapping("/patient/{patientId}")
     public List<Appointment> getAllAppointmentsByPatientId(@PathVariable Long patientId) {
         return appointmentService.getAllAppointmentsByPatientId(patientId);
@@ -49,20 +54,13 @@ public class AppointmentController {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<?> createAppointment(@Valid @RequestBody Appointment appointment) {
-        Appointment createdAppointment = null;
-        createdAppointment = appointmentService.createAppointment(appointment);
+        Appointment createdAppointment = appointmentService.createAppointment(appointment);
         return ResponseEntity.ok().body(createdAppointment);
     }
 
     @PatchMapping("/{appointmentId}")
     public ResponseEntity<?> editAppointment(@PathVariable Long appointmentId, @RequestBody AppointmentDto appointmentDto) {
         Appointment editedAppointment = appointmentService.editAppointment(appointmentId, appointmentDto);
-        return ResponseEntity.ok().body(editedAppointment);
-    }
-
-    @PutMapping("/{appointmentId}/notes")
-    public ResponseEntity<?> addAppointmentNotes(@PathVariable Long appointmentId, @RequestBody String notes) {
-        Appointment editedAppointment = appointmentService.addAppointmentNotes(appointmentId, notes);
         return ResponseEntity.ok().body(editedAppointment);
     }
 
