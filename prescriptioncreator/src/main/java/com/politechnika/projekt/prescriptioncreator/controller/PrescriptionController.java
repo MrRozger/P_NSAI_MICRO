@@ -53,6 +53,7 @@ public class PrescriptionController {
         return ResponseEntity.ok().body(createdAppointment);
     }
 
+    @RolesAllowed("ROLE_ADMIN")
     @DeleteMapping("/{prescriptionId}")
     public ResponseEntity<?> deletePrescription(@PathVariable Long prescriptionId) {
         prescriptionService.deletePrescription(prescriptionId);

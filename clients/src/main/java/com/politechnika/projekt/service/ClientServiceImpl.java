@@ -1,10 +1,10 @@
 package com.politechnika.projekt.service;
 
+import com.politechnika.projekt.exceptions.UnauthorizedUserException;
 import com.politechnika.projekt.exceptions.UserNotFoundException;
 import com.politechnika.projekt.model.Client;
 import com.politechnika.projekt.model.ClientDTO;
 import com.politechnika.projekt.repository.ClientRepository;
-import org.apache.commons.lang.StringUtils;
 import org.modelmapper.ModelMapper;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -48,32 +48,47 @@ public class ClientServiceImpl implements ClientService {
 
 
     @Override
-    public void editClient(Long id, ClientDTO clientDTO) {
-        Optional<Client> existingClient = clientRepository.findById(id);
+    public Client editClient(Long id, ClientDTO clientDTO, String username)  {
+        Client existingClient = findClient(id,username);
 
-        existingClient.ifPresentOrElse(
-                client -> {
-                    if (StringUtils.isNotBlank(clientDTO.getFirstName())) {
-                        client.setUsername(clientDTO.getFirstName());
+                    if (clientDTO.getFirstName() != null) {
+                        existingClient.setFirstName(clientDTO.getFirstName());
                     }
-                    if (StringUtils.isNotBlank(clientDTO.getLastName())) {
-                        client.setUsername(clientDTO.getLastName());
+                    if (clientDTO.getLastName() != null) {
+                        existingClient.setLastName(clientDTO.getLastName());
                     }
-                    if (StringUtils.isNotBlank(clientDTO.getUsername())) {
-                        client.setUsername(clientDTO.getUsername());
+                    if (clientDTO.getUsername() != null) {
+                        existingClient.setUsername(clientDTO.getUsername());
                     }
-                    if (StringUtils.isNotBlank(clientDTO.getEmail())) {
-                        client.setUsername(clientDTO.getEmail());
+                    if (clientDTO.getEmail() != null) {
+                        existingClient.setEmail(clientDTO.getEmail());
                     }
-                    if (StringUtils.isNotBlank(clientDTO.getPassword())) {
-                        client.setUsername(clientDTO.getPassword());
+                    if (clientDTO.getPassword() != null) {
+                        existingClient.setPassword(clientDTO.getPassword());
                     }
-                    clientRepository.save(client);
-                },
-                () -> {
-                    throw new UserNotFoundException("There is no such a user");
+                   return clientRepository.save(existingClient);
+
                 }
-        );
+
+
+
+    @Override
+    public  Client findClient(Long clientId, String username) {
+        Optional<Client> client = clientRepository.findById(clientId);
+        if(client.isPresent()){
+            boolean isPatientLogged = checkCurrentlyLoggedUser(client.get().getId(), username);
+            if(!isPatientLogged)  {
+                throw new UnauthorizedUserException("Currently logged user does not have an access");
+            }
+        return client.get();
+        }
+        throw new UserNotFoundException("User not found");
+    }
+
+    @Override
+    public boolean checkCurrentlyLoggedUser(Long clientId, String username) {
+        Client client = findById(clientId);
+        return username.equals(client.getUsername());
     }
 
     @Override

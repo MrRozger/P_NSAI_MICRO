@@ -13,7 +13,7 @@ public class ClientServerConfiguration extends ResourceServerConfigurerAdapter {
     public void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
                 .antMatchers("/clients/public").permitAll()
-                .antMatchers("/clients/*").permitAll()
+                .antMatchers("/clients").permitAll()
                 .anyRequest().authenticated();
     }
 }

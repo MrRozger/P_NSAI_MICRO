@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.security.RolesAllowed;
+import java.security.Principal;
 import java.util.List;
 
 @RestController
@@ -57,35 +58,22 @@ public class ClientController {
     }
 
     @PutMapping("/{id}")
+    @RolesAllowed("ROLE_ADMIN")
     public void putPatient(@PathVariable Long id, @RequestBody ClientDTO clientDTO) {
         clientService.putClient(id, clientDTO);
     }
 
-    @PatchMapping("/{id}")
-    public void editPatient(@PathVariable Long id, @RequestBody ClientDTO clientDTO) {
-        clientService.editClient(id, clientDTO);
+    @RolesAllowed("ROLE_PATIENT")
+    @PatchMapping("/{clientId}")
+    public ResponseEntity<?> editPatient(@PathVariable Long clientId, @RequestBody ClientDTO clientDTO, Principal user) {
+        Client editedClient = clientService.editClient(clientId,clientDTO,user.getName());
+        return ResponseEntity.ok().body(editedClient);
     }
 
     @RolesAllowed("ROLE_ADMIN")
-    @DeleteMapping(path = "/{id}")
+    @DeleteMapping("/{id}")
     public void deletePatient(@PathVariable Long id) {
         clientService.removeClient(id);
     }
 
-
-    //For testing Auth
-    @GetMapping("/public")
-    public String welcomePublic(){
-        return "Witaj jestes na publicznej stronie!!";
-    }
-    @GetMapping("/user")
-    @RolesAllowed("ROLE_PATIENT")
-    public String welcomeUser(){
-        return "Witaj jestes na user stronie!!";
-    }
-    @GetMapping("/admin")
-    @RolesAllowed("ROLE_ADMIN")
-    public String welcomeAdmin(){
-        return "Witaj jestes na admin stronie!!";
-    }
 }
