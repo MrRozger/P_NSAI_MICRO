@@ -22,4 +22,6 @@ public interface ClientService {
     Client findById(Long id);
 
     String getRoleByClientId(Long clientId);
+
+    String getRoleByClientUsername(String username);
 }

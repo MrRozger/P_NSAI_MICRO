@@ -46,22 +46,18 @@ public class PrescriptionService {
     }
 
     public List<Prescription> getAllPrescriptionsByPatientId(Long patientId) {
-        List<AppointmentDto> allAppointments = appointmentServiceFeignClient.getAllAppointments();
+        List<AppointmentDto> allAppointments = appointmentServiceFeignClient.getAllAppointmentsByPatientId(patientId);
 
         return allAppointments.stream()
-                .filter(a -> a.getPatientId() == patientId)
-                .filter(a -> "ROLE_PATIENT".equals(getRole(a.getPatientId())))
                 .map(a -> findPrescription(a.getId()))
                 .filter(Objects::nonNull)
                 .collect(Collectors.toList());
     }
 
     public List<Prescription> getAllPrescriptionsByDoctorId(Long doctorId) {
-        List<AppointmentDto> allAppointments = appointmentServiceFeignClient.getAllAppointments();
+        List<AppointmentDto> allAppointments = appointmentServiceFeignClient.getAllAppointmentsByDoctorId(doctorId);
 
         return allAppointments.stream()
-                .filter(a -> a.getDoctorId() == doctorId)
-                .filter(a -> "ROLE_DOCTOR".equals(getRole(a.getDoctorId())))
                 .map(a -> findPrescription(a.getId()))
                 .filter(Objects::nonNull)
                 .collect(Collectors.toList());
@@ -74,5 +70,14 @@ public class PrescriptionService {
 
     private String getRole(Long clientId) {
         return clientServiceFeignClient.getRoleByClientId(clientId);
+    }
+
+    private boolean checkCurrentlyLoggedUser(Long clientId, String username) {
+        ClientDto client = clientServiceFeignClient.getClient(clientId);
+        return username.equals(client.getUsername());
+    }
+
+    private boolean isAdmin(String username) {
+        return "ROLE_ADMIN".equals(clientServiceFeignClient.getRoleByClientUsername(username));
     }
 }

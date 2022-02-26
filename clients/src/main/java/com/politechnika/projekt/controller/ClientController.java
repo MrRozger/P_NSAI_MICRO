@@ -38,9 +38,14 @@ public class ClientController {
         return clientService.findById(clientId);
     }
 
-    @GetMapping("/{clientId}/role")
+    @GetMapping("/id/{clientId}/role")
     public String getRoleByClientId(@PathVariable Long clientId) {
         return clientService.getRoleByClientId(clientId);
+    }
+
+    @GetMapping("/username/{username}/role")
+    public String getRoleByClientUsername(@PathVariable String username) {
+        return clientService.getRoleByClientUsername(username);
     }
 
     @PostMapping

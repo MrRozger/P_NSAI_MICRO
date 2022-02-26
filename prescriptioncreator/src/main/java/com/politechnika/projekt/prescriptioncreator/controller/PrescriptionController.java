@@ -15,8 +15,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.annotation.security.RolesAllowed;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
+import java.security.Principal;
 import java.util.List;
 
 @RestController
@@ -32,11 +34,13 @@ public class PrescriptionController {
         this.pdfService = pdfService;
     }
 
+    @RolesAllowed({"ROLE_ADMIN", "ROLE_PATIENT"})
     @GetMapping("/patient/{patientId}")
     public List<Prescription> getAllPrescriptionsByPatientId(@PathVariable Long patientId) {
         return prescriptionService.getAllPrescriptionsByPatientId(patientId);
     }
 
+    @RolesAllowed({"ROLE_ADMIN", "ROLE_DOCTOR"})
     @GetMapping("/doctor/{doctorId}")
     public List<Prescription> getAllPrescriptionsByDoctorId(@PathVariable Long doctorId) {
         return prescriptionService.getAllPrescriptionsByDoctorId(doctorId);

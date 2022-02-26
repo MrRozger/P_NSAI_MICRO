@@ -7,6 +7,8 @@ import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.Optional;
+
 
 @Service
 public class EmailServiceImpl implements EmailService {
@@ -23,10 +25,12 @@ public class EmailServiceImpl implements EmailService {
 
     @Override
     public void sendEmail(String username) {
-        Client client = clientRepository.findByUsername(username);
-        Email email = createEmail(client);
+        Optional<Client> client = clientRepository.findByUsername(username);
+        if (client.isPresent()) {
+            Email email = createEmail(client.get());
 
-        rabbitTemplate.convertAndSend("239081", email);
+            rabbitTemplate.convertAndSend("239081", email);
+        }
     }
 
     @Override

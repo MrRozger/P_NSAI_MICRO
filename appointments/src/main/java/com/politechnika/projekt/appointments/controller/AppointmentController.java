@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.security.RolesAllowed;
 import javax.validation.Valid;
+import java.security.Principal;
 import java.util.List;
 
 @RestController
@@ -32,24 +33,27 @@ public class AppointmentController {
         this.appointmentService = appointmentService;
     }
 
+    @RolesAllowed("ROLE_ADMIN")
     @GetMapping()
     public List<Appointment> getAllAppointments() {
         return appointmentService.getAllAppointments();
     }
 
     @GetMapping("/{appointmentId}")
-    public Appointment findAppointment(@PathVariable Long appointmentId) {
-        return appointmentService.findAppointment(appointmentId);
+    public Appointment findAppointment(@PathVariable Long appointmentId, Principal user) {
+        return appointmentService.findAppointment(appointmentId, user.getName());
     }
 
+    @RolesAllowed({"ROLE_ADMIN", "ROLE_PATIENT"})
     @GetMapping("/patient/{patientId}")
-    public List<Appointment> getAllAppointmentsByPatientId(@PathVariable Long patientId) {
-        return appointmentService.getAllAppointmentsByPatientId(patientId);
+    public List<Appointment> getAllAppointmentsByPatientId(@PathVariable Long patientId, Principal user) {
+        return appointmentService.getAllAppointmentsByPatientId(patientId, user.getName());
     }
 
+    @RolesAllowed({"ROLE_ADMIN", "ROLE_DOCTOR"})
     @GetMapping("/doctor/{doctorId}")
-    public List<Appointment> getAllAppointmentsByDoctorId(@PathVariable Long doctorId) {
-        return appointmentService.getAllAppointmentsByDoctorId(doctorId);
+    public List<Appointment> getAllAppointmentsByDoctorId(@PathVariable Long doctorId, Principal user) {
+        return appointmentService.getAllAppointmentsByDoctorId(doctorId, user.getName());
     }
 
     @PostMapping
@@ -59,15 +63,16 @@ public class AppointmentController {
         return ResponseEntity.ok().body(createdAppointment);
     }
 
+    @RolesAllowed("ROLE_PATIENT")
     @PatchMapping("/{appointmentId}")
-    public ResponseEntity<?> editAppointment(@PathVariable Long appointmentId, @RequestBody AppointmentDto appointmentDto) {
-        Appointment editedAppointment = appointmentService.editAppointment(appointmentId, appointmentDto);
+    public ResponseEntity<?> editAppointment(@PathVariable Long appointmentId, @RequestBody AppointmentDto appointmentDto, Principal user) {
+        Appointment editedAppointment = appointmentService.editAppointment(appointmentId, appointmentDto, user.getName());
         return ResponseEntity.ok().body(editedAppointment);
     }
 
     @DeleteMapping(path = "/{appointmentId}")
-    public ResponseEntity<?> cancelAppointment(@PathVariable Long appointmentId) {
-        appointmentService.cancelAppointment(appointmentId);
+    public ResponseEntity<?> cancelAppointment(@PathVariable Long appointmentId, Principal user) {
+        appointmentService.cancelAppointment(appointmentId, user.getName());
         return ResponseEntity.ok().build();
     }
 

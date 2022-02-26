@@ -108,6 +108,15 @@ public class ClientServiceImpl implements ClientService {
         return client.get().getRole().name();
     }
 
+    @Override
+    public String getRoleByClientUsername(String username) {
+        Optional<Client> client = clientRepository.findByUsername(username);
+        if (client.isEmpty()) {
+            throw new UserNotFoundException("There is no such a user");
+        }
+        return client.get().getRole().name();
+    }
+
     private String hashPassword(String password) {
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         return passwordEncoder.encode(password);
